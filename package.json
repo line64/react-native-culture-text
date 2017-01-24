@@ -23,6 +23,10 @@
     "url": "https://github.com/line64/react-native-culture-text/issues"
   },
   "homepage": "https://github.com/line64/react-native-culture-text#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
   "devDependencies": {
     "react": "15.4.0-rc.4",
     "react-native": "0.40"
