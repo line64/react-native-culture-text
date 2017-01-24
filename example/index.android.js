@@ -34,7 +34,7 @@ const translations = {
     welcome: 'This text depends on the selected culture'
   },
   es: {
-    welcome. 'Este texto depende de la cultura seleccionada'
+    welcome: 'Este texto depende de la cultura seleccionada'
   }
 }
 
