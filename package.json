@@ -1,0 +1,30 @@
+{
+  "name": "react-native-culture-text",
+  "version": "0.1.0",
+  "description": "A higher order component of <Text/> to provide i18n features in a react-friendly way",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/line64/react-native-culture-text.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "component",
+    "i18n",
+    "l10n"
+  ],
+  "author": "Line64",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/line64/react-native-culture-text/issues"
+  },
+  "homepage": "https://github.com/line64/react-native-culture-text#readme",
+  "dependencies": {
+    "react": "15.4.0-rc.4",
+    "react-native": "0.40"
+  }
+}
