@@ -8,23 +8,22 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-import { CultureContext, CultureText } from 'react-native-culture-text';
+import { CultureContext, Text } from 'react-native-culture-text';
 
 export default class example extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <CultureText culture="es" messageKey="welcome" style={styles.instructions}>
-          This text depends on the selected culture
-        </CultureText>
-      </View>
+      <CultureContext translations={translations} culture="en">
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <Text messageKey="welcome" style={styles.instructions}/>
+        </View>
+      </CultureContext>
     );
   }
 }
