@@ -3,8 +3,7 @@ export function getBestMessageTranslation(translations, culture, messageKey) {
 
   if (!messageKey || !culture || !translations) return null;
 
-  //TODO: this is a quick draft, should improve fallback procedure
-  let lang = translations[culture];
+  let lang = translations[_localeFallback(culture)];
 
   if (!lang) return null;
 
@@ -20,3 +19,15 @@ export function mergeTranslations(baseTranslations, overrideTranslations) {
   };
 
 }
+
+function _localeFallback(locale) {
+
+  if (locale.indexOf('-') !== -1)
+      locale = locale.split('-')[0];
+
+  if (locale.indexOf('_') !== -1)
+      locale = locale.split('_')[0];
+  
+  return locale;
+
+};
