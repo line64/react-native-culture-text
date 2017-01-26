@@ -11,7 +11,7 @@ import {
   View
 } from 'react-native';
 
-import { CultureContext, Text } from 'react-native-culture-text';
+import { CultureContext, Text, TextInput } from 'react-native-culture-text';
 
 export default class example extends Component {
   render() {
@@ -22,6 +22,7 @@ export default class example extends Component {
             Welcome to React Native!
           </Text>
           <Text messageKey="welcome" style={styles.instructions}/>
+          <TextInput messageKey="placeholder" style={styles.textInput}/>
         </View>
       </CultureContext>
     );
@@ -30,10 +31,12 @@ export default class example extends Component {
 
 const translations = {
   en: {
-    welcome: 'This text depends on the selected culture'
+    welcome: 'This text depends on the selected culture',
+    placeholder: 'Please, enter some text'
   },
   es: {
-    welcome: 'Este texto depende de la cultura seleccionada'
+    welcome: 'Este texto depende de la cultura seleccionada',
+    placeholder: 'Por favor, ingrese un texto'
   }
 }
 
@@ -54,6 +57,10 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  textInput: {
+    width: 200,
+    textAlign: 'center',
+  }
 });
 
 AppRegistry.registerComponent('example', () => example);
