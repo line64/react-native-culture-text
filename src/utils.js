@@ -3,7 +3,7 @@ export function getBestMessageTranslation(translations, culture, messageKey) {
 
   if (!messageKey || !culture || !translations) return null;
 
-  let lang = translations[_localeFallback(culture)];
+  let lang = translations[getLangFromLocale(culture)];
 
   if (!lang) return null;
 
@@ -20,14 +20,12 @@ export function mergeTranslations(baseTranslations, overrideTranslations) {
 
 }
 
-function _localeFallback(locale) {
+function getLangFromLocale(locale) {
 
-  if (locale.indexOf('-') !== -1)
-      locale = locale.split('-')[0];
-
-  if (locale.indexOf('_') !== -1)
-      locale = locale.split('_')[0];
+  if(/^(?:[a-z]{2})(?:(_|-)[A-Z]{2})?$/.test(locale)) {
+    return locale.substring(0,2);
+  };
+  return null;
   
-  return locale;
-
 };
+
