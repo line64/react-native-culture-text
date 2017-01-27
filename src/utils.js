@@ -3,12 +3,16 @@ export function getBestMessageTranslation(translations, culture, messageKey) {
 
   if (!messageKey || !culture || !translations) return null;
 
-  let lang = translations[getLangFromLocale(culture)];
+  let lang;
 
-  if (!lang) return null;
+  if (translations[culture])
+    lang = translations[culture];
+  else if (translations[getLangFromLocale(culture)])
+    lang = translations[getLangFromLocale(culture)];
+  else 
+    return null;
 
   return lang[messageKey];
-
 }
 
 export function mergeTranslations(baseTranslations, overrideTranslations) {
@@ -21,11 +25,8 @@ export function mergeTranslations(baseTranslations, overrideTranslations) {
 }
 
 function getLangFromLocale(locale) {
-
-  if(/^(?:[a-z]{2})(?:(_|-)[A-Z]{2})?$/.test(locale)) {
-    return locale.substring(0,2);
-  };
-  return null;
-  
+  let re = /^[A-Za-z]{2}/,
+  result = re.exec(locale);
+  return result[0];  
 };
 
