@@ -1,0 +1,16 @@
+exports[`test render translated message 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    Welcome to React Native!
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    Este texto depende de la cultura seleccionada
+  </Text>
+</View>
+`;
