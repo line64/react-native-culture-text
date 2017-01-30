@@ -1,15 +1,15 @@
 
-export function getBestMessageTranslation(translations, culture, messageKey) {
+export function getBestMessageTranslation(translations, locale, messageKey) {
 
-  if (!messageKey || !culture || !translations) return null;
+  if (!messageKey || !locale || !translations) return null;
 
   let lang;
 
-  if (translations[culture])
-    lang = translations[culture];
-  else if (translations[getLangFromLocale(culture)])
-    lang = translations[getLangFromLocale(culture)];
-  else 
+  if (translations[locale])
+    lang = translations[locale];
+  else if (translations[getLangFromLocale(locale)])
+    lang = translations[getLangFromLocale(locale)];
+  else
     return null;
 
   return lang[messageKey];
@@ -27,6 +27,5 @@ export function mergeTranslations(baseTranslations, overrideTranslations) {
 function getLangFromLocale(locale) {
   let re = /^[A-Za-z]{2}/,
   result = re.exec(locale);
-  return result[0];  
+  return result[0];
 };
-

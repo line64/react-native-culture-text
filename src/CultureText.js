@@ -7,27 +7,27 @@ const CultureText = (props, context) => {
   let {
     messageKey,
     translations: propsTranslatios,
-    culture: propsCulture,
+    locale: propsLocale,
     ...otherProps,
   } = props;
 
   let {
     translations: contextTranslations,
-    culture: contextCulture,
+    locale: contextLocale,
   } = context;
 
   let translations = mergeTranslations(contextTranslations, propsTranslatios);
 
-  let culture = propsCulture || contextCulture;
+  let locale = propsLocale || contextLocale;
 
-  let translated = getBestMessageTranslation(translations, culture, messageKey);
+  let translated = getBestMessageTranslation(translations, locale, messageKey);
 
   return (<Text {...otherProps}>{translated || props.children}</Text>);
 
 };
 
 CultureText.contextTypes = {
-  culture: React.PropTypes.string,
+  locale: React.PropTypes.string,
   translations: React.PropTypes.object,
 };
 

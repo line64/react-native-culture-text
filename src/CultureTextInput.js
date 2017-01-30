@@ -7,27 +7,27 @@ const CultureTextInput = (props, context) => {
   let {
     messageKey,
     translations: propsTranslatios,
-    culture: propsCulture,
+    locale: propsLocale,
     ...otherProps,
   } = props;
 
   let {
     translations: contextTranslations,
-    culture: contextCulture,
+    locale: contextLocale,
   } = context;
 
   let translations = mergeTranslations(contextTranslations, propsTranslatios);
 
-  let culture = propsCulture || contextCulture;
+  let locale = propsLocale || contextLocale;
 
-  let translatedPlaceholder = getBestMessageTranslation(translations, culture, messageKey);
+  let translatedPlaceholder = getBestMessageTranslation(translations, locale, messageKey);
 
   return (<TextInput {...otherProps} placeholder={(translatedPlaceholder || otherProps.placeholder)}/>);
 
 };
 
 CultureTextInput.contextTypes = {
-  culture: React.PropTypes.string,
+  locale: React.PropTypes.string,
   translations: React.PropTypes.object,
 };
 

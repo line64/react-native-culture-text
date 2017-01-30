@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 class CultureContext extends Component {
 
   static childContextTypes = {
-    culture: React.PropTypes.string,
+    locale: React.PropTypes.string,
     translations: React.PropTypes.object,
   };
 
   getChildContext() {
     return {
-      culture: this.props.culture,
+      locale: this.props.locale,
       translations: this.props.translations
     };
   }
