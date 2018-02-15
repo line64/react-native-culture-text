@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class CultureContext extends Component {
-
   static childContextTypes = {
     locale: React.PropTypes.string,
-    translations: React.PropTypes.object,
+    translations: React.PropTypes.object
   };
 
   getChildContext() {
@@ -17,7 +16,6 @@ class CultureContext extends Component {
   render() {
     return this.props.children;
   }
-
 }
 
 export default CultureContext;

@@ -1,20 +1,16 @@
-import React from 'react';
-import { Text } from 'react-native';
-import { mergeTranslations, getBestMessageTranslation } from './utils';
+import React from "react";
+import { Text } from "react-native";
+import { mergeTranslations, getBestMessageTranslation } from "./utils";
 
 const CultureText = (props, context) => {
-
   let {
     messageKey,
     translations: propsTranslatios,
     locale: propsLocale,
-    ...otherProps,
+    ...otherProps
   } = props;
 
-  let {
-    translations: contextTranslations,
-    locale: contextLocale,
-  } = context;
+  let { translations: contextTranslations, locale: contextLocale } = context;
 
   let translations = mergeTranslations(contextTranslations, propsTranslatios);
 
@@ -22,13 +18,12 @@ const CultureText = (props, context) => {
 
   let translated = getBestMessageTranslation(translations, locale, messageKey);
 
-  return (<Text {...otherProps}>{translated || props.children}</Text>);
-
+  return <Text {...otherProps}>{translated || props.children}</Text>;
 };
 
 CultureText.contextTypes = {
   locale: React.PropTypes.string,
-  translations: React.PropTypes.object,
+  translations: React.PropTypes.object
 };
 
 export default CultureText;
