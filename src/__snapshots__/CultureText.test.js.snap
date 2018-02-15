@@ -1,15 +1,19 @@
-exports[`test render translated message 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render translated message 1`] = `
 <View>
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="tail">
+    ellipsizeMode="tail"
+  >
     Welcome to React Native!
   </Text>
   <Text
     accessible={true}
     allowFontScaling={true}
-    ellipsizeMode="tail">
+    ellipsizeMode="tail"
+  >
     Este texto depende de la cultura seleccionada
   </Text>
 </View>

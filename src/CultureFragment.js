@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Text } from "react-native";
 import { mergeTranslations, getBestMessageTranslation } from "./utils";
 
@@ -18,18 +19,19 @@ const CultureFragment = (props, context) => {
 
   const locale = propsLocale || contextLocale;
 
-  const translate = (messageKey) => getBestMessageTranslation(translations, locale, messageKey);
+  const translate = messageKey =>
+    getBestMessageTranslation(translations, locale, messageKey);
 
   return children(translate);
 };
 
 CultureFragment.contextTypes = {
-  locale: React.PropTypes.string,
-  translations: React.PropTypes.object,
+  locale: PropTypes.string,
+  translations: PropTypes.object
 };
 
 CultureFragment.propTypes = {
-  children: React.PropTypes.func
+  children: PropTypes.func
 };
 
 export default CultureFragment;

@@ -1,6 +1,10 @@
-exports[`test render translated message 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render translated message 1`] = `
 <View>
   <TextInput
-    placeholder="Escriba su nombre" />
+    allowFontScaling={true}
+    placeholder="Escriba su nombre"
+  />
 </View>
 `;

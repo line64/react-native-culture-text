@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { TextInput } from "react-native";
 import { mergeTranslations, getBestMessageTranslation } from "./utils";
 
@@ -31,8 +32,8 @@ const CultureTextInput = (props, context) => {
 };
 
 CultureTextInput.contextTypes = {
-  locale: React.PropTypes.string,
-  translations: React.PropTypes.object
+  locale: PropTypes.string,
+  translations: PropTypes.object
 };
 
 export default CultureTextInput;

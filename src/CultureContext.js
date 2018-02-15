@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class CultureContext extends Component {
   static childContextTypes = {
-    locale: React.PropTypes.string,
-    translations: React.PropTypes.object
+    locale: PropTypes.string,
+    translations: PropTypes.object
   };
 
   getChildContext() {
