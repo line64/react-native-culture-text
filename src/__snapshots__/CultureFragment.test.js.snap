@@ -1,0 +1,6 @@
+exports[`test render translated message 1`] = `
+<View>
+  <TextInput
+    palceholder="indicio de un campo de texto" />
+</View>
+`;

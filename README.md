@@ -24,13 +24,12 @@ yarn add react-native-culture-text
 2. In each isolated component, wrap your UI with another `<CultureContext translations={myTranslations} />` to tell the component's children where to look for translated messages.
 3. Switch your import statements to use the `<Text/>` component that comes with this library instead of the original react-native one.
 4. To each `<Text/>` element, add a new attribute `messageKey` that will be used to select which message translation to use.
+5. For those places that don't use `<Text/>` component, wrap your UI with a `<CultureFragment/>` component use the `children` render prop that provides a `translate` helper function
 
-## Sample
+## Example with <Text/> component
 ```
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   View
 } from 'react-native';
 
@@ -43,11 +42,11 @@ export default class example extends Component {
   render() {
     return (
       <CultureContext translations={translations} locale="es">
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
+        <View>
+          <Text>
             Welcome to React Native!
           </Text>
-          <Text messageKey="welcome" style={styles.instructions}>
+          <Text messageKey="welcome">
             This text depends on the selected culture
           </Text>
         </View>
@@ -64,24 +63,46 @@ const translations = {
     welcome: 'Este texto depende de la cultura seleccionada',
   },
 }
+```
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+## Example with <CultureFragment/> render prop
+```
+import React, { Component } from 'react';
+import {
+  View,
+  TextInput
+} from 'react-native';
 
+import {
+  CultureContext,
+  CultureFragment
+} from 'react-native-culture-text';
+
+export default class example extends Component {
+  render() {
+    return (
+      <CultureContext translations={translations} locale="es">
+        <CultureFragment>
+          {T => (
+            <View>
+              <Text>
+                Welcome to React Native!
+              </Text>
+              <TextInput placeholder={T('username')} />
+            )}
+          </View>
+        </CultureFragment>
+      </CultureContext>
+    );
+  }
+}
+
+const translations = {
+  en: {
+    username: 'type your username',
+  },
+  es: {
+    username: 'ingrese su usuario',
+  },
+}
 ```
