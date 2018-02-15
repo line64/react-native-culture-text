@@ -12,7 +12,7 @@ import { CultureContext, Text, TextInput } from "react-native-culture-text";
 export default class example extends Component {
   render() {
     return (
-      <CultureContext translations={translations} culture="es">
+      <CultureContext translations={translations} culture="en">
         <View style={styles.container}>
           <Text style={styles.welcome}>Welcome to React Native!</Text>
           <Text messageKey="welcome" style={styles.instructions} />
